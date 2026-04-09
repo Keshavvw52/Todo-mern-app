@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 
 const navItems = [
   { to: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-  { to: "/todos/add", icon: CheckSquare, label: "My Tasks" },
+  { to: "/todos/add", icon: CheckSquare, label: "Add Tasks" },
 ];
 
 export default function Sidebar() {

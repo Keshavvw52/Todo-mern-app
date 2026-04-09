@@ -16,10 +16,15 @@ router.get("/", async (req, res) => {
 
     const query = { user: req.user._id };
 
-    if (search) {
+    const escapeRegex = (text) =>
+  text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const safeSearch = escapeRegex(search || "");
+
+    if (safeSearch.trim()) {
       query.$or = [
-        { title: { $regex: search, $options: "i" } },
-        { description: { $regex: search, $options: "i" } },
+        { title: { $regex: safeSearch, $options: "i" } },
+        { description: { $regex: safeSearch, $options: "i" } },
       ];
     }
 
@@ -42,7 +47,10 @@ router.get("/", async (req, res) => {
       },
     });
   } catch (err) {
-    res.status(500).json({ message: "Server error", error: err.message });
+    console.error("error");
+    res.status(500).json({ 
+      message: "Server error"
+});
   }
 });
 

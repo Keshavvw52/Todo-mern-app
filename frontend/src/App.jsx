@@ -19,8 +19,16 @@ const ProtectedRoute = ({ children }) => {
 
 const PublicRoute = ({ children }) => {
   const { token, loading } = useAuth();
-  if (loading) return null;
-  return !token ? children : <Navigate to="/dashboard" replace />;
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="w-8 h-8 border-2 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  return !token ? children : <Navigate to="/dashboard" />;
 };
 
 const AppRoutes = () => (

@@ -7,6 +7,10 @@ const { protect } = require("../middlewares/auth");
 
 const router = express.Router();
 
+if (!process.env.JWT_SECRET) {
+  console.error("JWT_SECRET is missing");
+  process.exit(1);
+}
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "24h" });
 };
@@ -55,7 +59,10 @@ router.post(
         },
       });
     } catch (err) {
-      res.status(500).json({ message: "Server error", error: err.message });
+      console.error(err); 
+      res.status(500).json({
+      message: "Server error"
+      });
     }
   }
 );
@@ -98,7 +105,10 @@ router.post(
         },
       });
     } catch (err) {
-      res.status(500).json({ message: "Server error", error: err.message });
+      console.error(err); 
+      res.status(500).json({
+      message: "Server error"
+});
     }
   }
 );

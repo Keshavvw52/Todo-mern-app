@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Pencil, Trash2, CheckCircle2, Circle, Calendar, Flag } from "lucide-react";
+import { Pencil, Trash2, CheckCircle2, Circle, Calendar } from "lucide-react";
 import { formatDistanceToNow } from "../utils/dateUtils";
 
 const priorityConfig = {

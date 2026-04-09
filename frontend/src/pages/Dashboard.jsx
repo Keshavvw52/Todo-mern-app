@@ -122,12 +122,14 @@ export default function Dashboard() {
 
         {/* Stat Cards */}
         <div className="grid grid-cols-3 gap-4">
-          <StatCard icon={ListTodo} label="Total Tasks" value={stats.total}
-            iconColor="bg-violet-500/30" gradient="bg-violet-500" />
-          <StatCard icon={CheckCircle2} label="Completed" value={stats.completed}
-            iconColor="bg-emerald-500/30" gradient="bg-emerald-500" />
-          <StatCard icon={AlertCircle} label="Overdue" value={stats.overdue}
-            iconColor="bg-red-500/30" gradient="bg-red-500" />
+          <StatCard icon={ListTodo} label="Total (all pages)" value={stats.total}
+  iconColor="bg-violet-500/30" gradient="bg-violet-500" />
+
+<StatCard icon={CheckCircle2} label="Completed (this page)" value={stats.completed}
+  iconColor="bg-emerald-500/30" gradient="bg-emerald-500" />
+
+<StatCard icon={AlertCircle} label="Overdue (this page)" value={stats.overdue}
+  iconColor="bg-red-500/30" gradient="bg-red-500" />
         </div>
 
         {/* Filters + Task list */}
