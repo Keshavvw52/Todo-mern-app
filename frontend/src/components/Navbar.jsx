@@ -28,12 +28,12 @@ export default function Navbar({ onSearch }) {
 
       <div className="flex items-center gap-3 ml-auto">
         
-       <button
-  className="text-gray-400 hover:text-white transition"
-  onClick={() => toast("No new notifications")}
->
-  🔔
-</button>
+        <button
+    className="text-gray-400 hover:text-white transition"
+    onClick={() => toast("No new notifications")}
+  >
+    <Bell size={16} />
+  </button>
 
         
         <button
