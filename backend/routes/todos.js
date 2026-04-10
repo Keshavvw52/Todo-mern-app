@@ -72,7 +72,10 @@ router.post("/", async (req, res) => {
 
     res.status(201).json(todo);
   } catch (err) {
-    res.status(500).json({ message: "Server error", error: err.message });
+    console.error("err")
+    res.status(500).json({
+       message: "Server error"
+    });
   }
 });
 
@@ -85,7 +88,10 @@ router.get("/:id", async (req, res) => {
 
     res.json(todo);
   } catch (err) {
-    res.status(500).json({ message: "Server error", error: err.message });
+    console.error("err")
+    res.status(500).json({
+     message: "Server error"
+    });
   }
 });
 
@@ -106,7 +112,10 @@ router.put("/:id", async (req, res) => {
     await todo.save();
     res.json(todo);
   } catch (err) {
-    res.status(500).json({ message: "Server error", error: err.message });
+    console.error("err")
+    res.status(500).json({
+       message: "Server error"
+    });
   }
 });
 
@@ -122,7 +131,10 @@ router.delete("/:id", async (req, res) => {
 
     res.json({ message: "Todo deleted successfully" });
   } catch (err) {
-    res.status(500).json({ message: "Server error", error: err.message });
+    console.error("err")
+    res.status(500).json({
+       message: "Server error"
+    });
   }
 });
 
@@ -131,7 +143,10 @@ router.patch("/mark-all-completed", async (req, res) => {
     await Todo.updateMany({ user: req.user._id }, { isCompleted: true });
     res.json({ message: "All todos marked as completed" });
   } catch (err) {
-    res.status(500).json({ message: "Server error", error: err.message });
+    console.error("err")
+    res.status(500).json({ 
+      message: "Server error"
+    });
   }
 });
 
