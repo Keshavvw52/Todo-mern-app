@@ -1,6 +1,6 @@
 const express = require("express");
 const Todo = require("../models/Todo");
-const { protect, adminOnly } = require("../middlewares/auth");
+const { protect } = require("../middlewares/auth");
 
 const router = express.Router();
 
@@ -130,15 +130,6 @@ router.patch("/mark-all-completed", async (req, res) => {
   try {
     await Todo.updateMany({ user: req.user._id }, { isCompleted: true });
     res.json({ message: "All todos marked as completed" });
-  } catch (err) {
-    res.status(500).json({ message: "Server error", error: err.message });
-  }
-});
-
-router.get("/admin/all", adminOnly, async (req, res) => {
-  try {
-    const todos = await Todo.find().populate("user", "name email").sort({ createdAt: -1 });
-    res.json(todos);
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err.message });
   }

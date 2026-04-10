@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import {
   LayoutDashboard,
-  CheckSquare,
+  ListTodo,
   LogOut,
   Zap
 } from "lucide-react";
@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 
 const navItems = [
   { to: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-  { to: "/todos/add", icon: CheckSquare, label: "Add Tasks" },
+  { to: "/tasks", icon: ListTodo, label: "My Tasks" },
 ];
 
 export default function Sidebar() {
@@ -44,9 +44,8 @@ export default function Sidebar() {
           <NavLink
             key={label}
             to={to}
-            className={({ isActive }) =>
-              `sidebar-link ${isActive && to !== "#" ? "active" : ""}`
-            }
+            end
+            className={({ isActive }) => `sidebar-link ${isActive ? "active" : ""}`}
           >
             <Icon size={17} />
             {label}

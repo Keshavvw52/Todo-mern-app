@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import AddTodo from "./pages/AddTodo";
 import EditTodo from "./pages/EditTodo";
+import MyTasks from "./pages/MyTasks";
 
 
 const ProtectedRoute = ({ children }) => {
@@ -37,6 +38,7 @@ const AppRoutes = () => (
     <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
     <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
     <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+    <Route path="/tasks" element={<ProtectedRoute><MyTasks /></ProtectedRoute>} />
     <Route path="/todos/add" element={<ProtectedRoute><AddTodo /></ProtectedRoute>} />
     <Route path="/todos/edit/:id" element={<ProtectedRoute><EditTodo /></ProtectedRoute>} />
     
