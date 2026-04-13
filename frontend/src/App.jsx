@@ -41,7 +41,7 @@ const AppRoutes = () => (
     <Route path="/tasks" element={<ProtectedRoute><MyTasks /></ProtectedRoute>} />
     <Route path="/todos/add" element={<ProtectedRoute><AddTodo /></ProtectedRoute>} />
     <Route path="/todos/edit/:id" element={<ProtectedRoute><EditTodo /></ProtectedRoute>} />
-    
+    <Route path="*" element={<Navigate to="/dashboard" replace />} />
   </Routes>
 );
 
